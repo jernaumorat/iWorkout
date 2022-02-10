@@ -1,28 +1,38 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19461" systemVersion="20G165" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Category" representedClassName="Category" syncable="YES" codeGenerationType="class">
-        <attribute name="name" attributeType="String"/>
+        <attribute name="name" attributeType="String" defaultValueString=""/>
         <relationship name="exercise" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Exercise" inverseName="category" inverseEntity="Exercise"/>
     </entity>
     <entity name="Exercise" representedClassName="Exercise" syncable="YES" codeGenerationType="class">
-        <attribute name="name" attributeType="String"/>
-        <relationship name="category" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Category" inverseName="exercise" inverseEntity="Category"/>
-        <relationship name="workout" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Workout" inverseName="exercise" inverseEntity="Workout"/>
+        <attribute name="name" attributeType="String" defaultValueString=""/>
+        <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Category" inverseName="exercise" inverseEntity="Category"/>
+        <relationship name="workout" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Workout" inverseName="exercise" inverseEntity="Workout"/>
+    </entity>
+    <entity name="HistoricalWorkout" representedClassName="HistoricalWorkout" syncable="YES" codeGenerationType="class">
+        <attribute name="category" attributeType="String" defaultValueString=""/>
+        <attribute name="exercise" attributeType="String" defaultValueString=""/>
+        <attribute name="repetitions" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="timestamp" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="weight" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="originalplan" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WorkoutPlan" inverseName="history" inverseEntity="WorkoutPlan"/>
     </entity>
     <entity name="Workout" representedClassName="Workout" syncable="YES" codeGenerationType="class">
-        <attribute name="repetitions" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="weight" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="repetitions" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="weight" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="exercise" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Exercise" inverseName="workout" inverseEntity="Exercise"/>
-        <relationship name="plan" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WorkoutPlan" inverseName="workout" inverseEntity="WorkoutPlan"/>
+        <relationship name="plan" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="WorkoutPlan" inverseName="workout" inverseEntity="WorkoutPlan"/>
     </entity>
     <entity name="WorkoutPlan" representedClassName="WorkoutPlan" syncable="YES" codeGenerationType="class">
-        <attribute name="dayofweek" optional="YES" attributeType="Integer 16" minValueString="0" maxValueString="6" defaultValueString="0" usesScalarValueType="YES"/>
-        <relationship name="workout" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Workout" inverseName="plan" inverseEntity="Workout"/>
+        <attribute name="dayofweek" attributeType="String" minValueString="0" maxValueString="9" defaultValueString=""/>
+        <relationship name="history" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="HistoricalWorkout" inverseName="originalplan" inverseEntity="HistoricalWorkout"/>
+        <relationship name="workout" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Workout" inverseName="plan" inverseEntity="Workout"/>
     </entity>
     <elements>
-        <element name="Category" positionX="-65.88671875" positionY="-157.65234375" width="128" height="73"/>
-        <element name="Exercise" positionX="-63.4140625" positionY="-24.8828125" width="128" height="88"/>
-        <element name="Workout" positionX="-62.06640625" positionY="132.46875" width="128" height="103"/>
-        <element name="WorkoutPlan" positionX="-62.8046875" positionY="310.12109375" width="128" height="73"/>
+        <element name="Category" positionX="-65.88671875" positionY="-157.65234375" width="128" height="59"/>
+        <element name="Exercise" positionX="-63.4140625" positionY="-24.8828125" width="128" height="74"/>
+        <element name="HistoricalWorkout" positionX="-63" positionY="0" width="128" height="119"/>
+        <element name="Workout" positionX="-62.06640625" positionY="132.46875" width="128" height="89"/>
+        <element name="WorkoutPlan" positionX="-62.8046875" positionY="310.12109375" width="128" height="74"/>
     </elements>
 </model>

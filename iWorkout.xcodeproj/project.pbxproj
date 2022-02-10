@@ -7,32 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D13E6E0279FA76300DBD1E9 /* DebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D13E6DF279FA76300DBD1E9 /* DebugView.swift */; };
+		4D25593927A75465009BC614 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D25593827A75465009BC614 /* Util.swift */; };
 		4D76C896279544DB005D7E5A /* iWorkoutApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D76C895279544DB005D7E5A /* iWorkoutApp.swift */; };
 		4D76C898279544DB005D7E5A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D76C897279544DB005D7E5A /* ContentView.swift */; };
 		4D76C89A279544DD005D7E5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D76C899279544DD005D7E5A /* Assets.xcassets */; };
-		4D76C89D279544DD005D7E5A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D76C89C279544DD005D7E5A /* Preview Assets.xcassets */; };
 		4D76C89F279544DD005D7E5A /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D76C89E279544DD005D7E5A /* Persistence.swift */; };
 		4D76C8A2279544DD005D7E5A /* iWorkout.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4D76C8A0279544DD005D7E5A /* iWorkout.xcdatamodeld */; };
 		4D76C8A92796AEB4005D7E5A /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D76C8A82796AEB3005D7E5A /* TodayView.swift */; };
 		4D76C8AB2796AEC8005D7E5A /* ExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D76C8AA2796AEC8005D7E5A /* ExerciseView.swift */; };
 		4D76C8AE2796AF02005D7E5A /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D76C8AD2796AF02005D7E5A /* HistoryView.swift */; };
 		4D76C8B12796AF36005D7E5A /* PlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D76C8B02796AF36005D7E5A /* PlanView.swift */; };
-		4D76C8B5279B859A005D7E5A /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D76C8B4279B859A005D7E5A /* HealthKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4D13E6DF279FA76300DBD1E9 /* DebugView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugView.swift; sourceTree = "<group>"; };
+		4D25593827A75465009BC614 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		4D76C892279544DB005D7E5A /* iWorkout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iWorkout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D76C895279544DB005D7E5A /* iWorkoutApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iWorkoutApp.swift; sourceTree = "<group>"; };
 		4D76C897279544DB005D7E5A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4D76C899279544DD005D7E5A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		4D76C89C279544DD005D7E5A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4D76C89E279544DD005D7E5A /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		4D76C8A1279544DD005D7E5A /* iWorkout.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iWorkout.xcdatamodel; sourceTree = "<group>"; };
 		4D76C8A82796AEB3005D7E5A /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
 		4D76C8AA2796AEC8005D7E5A /* ExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseView.swift; sourceTree = "<group>"; };
 		4D76C8AD2796AF02005D7E5A /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		4D76C8B02796AF36005D7E5A /* PlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanView.swift; sourceTree = "<group>"; };
-		4D76C8B2279B859A005D7E5A /* iWorkout.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iWorkout.entitlements; sourceTree = "<group>"; };
 		4D76C8B4279B859A005D7E5A /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -41,7 +41,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D76C8B5279B859A005D7E5A /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,23 +67,14 @@
 		4D76C894279544DB005D7E5A /* iWorkout */ = {
 			isa = PBXGroup;
 			children = (
-				4D76C8B2279B859A005D7E5A /* iWorkout.entitlements */,
 				4D76C8AC2796AEE1005D7E5A /* UI */,
 				4D76C895279544DB005D7E5A /* iWorkoutApp.swift */,
 				4D76C899279544DD005D7E5A /* Assets.xcassets */,
 				4D76C89E279544DD005D7E5A /* Persistence.swift */,
 				4D76C8A0279544DD005D7E5A /* iWorkout.xcdatamodeld */,
-				4D76C89B279544DD005D7E5A /* Preview Content */,
+				4D25593827A75465009BC614 /* Util.swift */,
 			);
 			path = iWorkout;
-			sourceTree = "<group>";
-		};
-		4D76C89B279544DD005D7E5A /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				4D76C89C279544DD005D7E5A /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		4D76C8AC2796AEE1005D7E5A /* UI */ = {
@@ -103,6 +93,7 @@
 				4D76C8AA2796AEC8005D7E5A /* ExerciseView.swift */,
 				4D76C8AD2796AF02005D7E5A /* HistoryView.swift */,
 				4D76C8B02796AF36005D7E5A /* PlanView.swift */,
+				4D13E6DF279FA76300DBD1E9 /* DebugView.swift */,
 			);
 			path = Tabs;
 			sourceTree = "<group>";
@@ -173,7 +164,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D76C89D279544DD005D7E5A /* Preview Assets.xcassets in Resources */,
 				4D76C89A279544DD005D7E5A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -188,9 +178,11 @@
 				4D76C8AE2796AF02005D7E5A /* HistoryView.swift in Sources */,
 				4D76C8AB2796AEC8005D7E5A /* ExerciseView.swift in Sources */,
 				4D76C89F279544DD005D7E5A /* Persistence.swift in Sources */,
+				4D13E6E0279FA76300DBD1E9 /* DebugView.swift in Sources */,
 				4D76C8A2279544DD005D7E5A /* iWorkout.xcdatamodeld in Sources */,
 				4D76C898279544DB005D7E5A /* ContentView.swift in Sources */,
 				4D76C8A92796AEB4005D7E5A /* TodayView.swift in Sources */,
+				4D25593927A75465009BC614 /* Util.swift in Sources */,
 				4D76C896279544DB005D7E5A /* iWorkoutApp.swift in Sources */,
 				4D76C8B12796AF36005D7E5A /* PlanView.swift in Sources */,
 			);
@@ -320,10 +312,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = iWorkout/iWorkout.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"iWorkout/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 8H8QNL2FW4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -332,7 +325,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -342,7 +335,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -351,10 +344,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = iWorkout/iWorkout.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"iWorkout/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 8H8QNL2FW4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -363,7 +357,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -373,7 +367,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

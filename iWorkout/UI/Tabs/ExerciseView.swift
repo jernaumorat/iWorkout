@@ -35,7 +35,7 @@ struct AddCategory : View {
                     
                     presentationMode.wrappedValue.dismiss()
                 } label: {
-                    Text("Save")
+                    Image(systemName: "checkmark")
                 }
                     .disabled(labelText == "")
             }
@@ -75,7 +75,7 @@ struct AddExercise : View {
                 Button {
                     let newEx = Exercise(context: viewContext)
                     newEx.name = labelText
-                    newEx.category = [categories[pickerSel]]
+                    newEx.category = categories[pickerSel]
                     do {
                         try viewContext.save()
                     } catch let error {
@@ -84,7 +84,7 @@ struct AddExercise : View {
                     
                     presentationMode.wrappedValue.dismiss()
                 } label: {
-                    Text("Save")
+                    Image(systemName: "checkmark")
                 }
                     .disabled(labelText == "")
             }
@@ -103,7 +103,6 @@ struct CategoryDetail : View {
                     Text(ex.name!)
                 }
             }
-            .padding()
             .navigationTitle(category.name!)
         } else {
             Text("No exercises belong to this category, go create some!")
@@ -126,11 +125,19 @@ struct ExerciseView : View {
     @State private var alertEmptyActive = false
     @State private var confirmationShown = false
 
+    @State private var catToDelete = Category()
+    
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Category.name, ascending: true)], animation: .default)
     private var categories: FetchedResults<Category>
     
-    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Exercise.name, ascending: true)], animation: .default)
-    private var exercises: FetchedResults<Exercise>
+    @SectionedFetchRequest(
+        sectionIdentifier: \Exercise.category!.name!,
+        sortDescriptors: [
+            NSSortDescriptor(keyPath: \Exercise.category!.name, ascending: true),
+            NSSortDescriptor(keyPath: \Exercise.name, ascending: true)
+        ],
+        animation: .default)
+    private var exercises: SectionedFetchResults<String, Exercise>
     
     var body: some View {
         NavigationView {
@@ -139,42 +146,46 @@ struct ExerciseView : View {
                     Text("Categories").tag(false)
                     Text("Exercises").tag(true)
                 }
-                .padding()
                 .pickerStyle(.segmented)
+                .padding(.horizontal)
                 
                 if !tabSel {
+                    Group {
+                    categories.isEmpty ? AnyView(Text("You have no categories, better create some!").frame(maxHeight: .infinity)) : AnyView(
                     List {
                         ForEach(categories, id: \.self.id) { cat in
                             NavigationLink(cat.name!) { CategoryDetail(category: cat) }
                             .swipeActions {
                                 Button (
                                     role: .destructive,
-                                    action: { confirmationShown = true }
+                                    action: {
+                                        catToDelete = cat
+                                        confirmationShown = true
+                                    }
                                 ) {
                                     Text("Delete")
                                 }
                             }
-                            .confirmationDialog(
-                                "Are you sure you want to delete this category? Exercises belonging to the category will also be deleted!",
-                                isPresented: $confirmationShown,
-                                titleVisibility: .visible
-                            ) {
-                                Button("Delete", role: .destructive) {
-                                    withAnimation {
-                                        viewContext.delete(cat)
-                                        do {
-                                            try viewContext.save()
-                                        } catch let error {
-                                            print("Error deleting category: \(error)")
-                                        }
-                                    }
-                                    confirmationShown = false
-                                }
-                                Button("Cancel", role: .cancel) {}
-                            }
                         }
                     }
-                    .padding()
+                        .confirmationDialog(
+                            "Are you sure you want to delete this category? Exercises belonging to the category will also be deleted!",
+                            isPresented: $confirmationShown,
+                            titleVisibility: .visible
+                        ) {
+                            Button("Delete", role: .destructive) {
+                                withAnimation {
+                                    viewContext.delete(catToDelete)
+                                    do {
+                                        try viewContext.save()
+                                    } catch let error {
+                                        print("Error deleting category: \(error)")
+                                    }
+                                }
+                                confirmationShown = false
+                            }
+                            Button("Cancel", role: .cancel) {}
+                        })}
                     .navigationTitle(Text("Categories"))
                     .navigationBarTitleDisplayMode(.inline)
                     .toolbar {
@@ -189,22 +200,27 @@ struct ExerciseView : View {
                     }
                     .animation(.spring(), value: categories.count)
                 } else {
+                    Group {
+                    exercises.isEmpty ? AnyView(Text("You have no exercises, better create some!").frame(maxHeight: .infinity)) : AnyView(
                     List {
-                        ForEach(exercises) { exc in
-                            Text(exc.name!)
-                        }
-                        .onDelete { i in
-                            withAnimation {
-                                i.map { exercises[$0] }.forEach(viewContext.delete)
-                                do {
-                                    try viewContext.save()
-                                } catch let error {
-                                    print("Error deleting exercise: \(error)")
+                        ForEach(exercises) { cat in
+                            Section(cat.id) {
+                                ForEach(cat) { exc in
+                                    Text(exc.name!)
+                                }
+                                .onDelete { i in
+                                    withAnimation {
+                                        i.map { cat[$0] }.forEach(viewContext.delete)
+                                        do {
+                                            try viewContext.save()
+                                        } catch let error {
+                                            print("Error deleting exercise: \(error)")
+                                        }
+                                    }
                                 }
                             }
                         }
-                    }
-                    .padding()
+                    })}
                     .navigationTitle(Text("Exercises"))
                     .navigationBarTitleDisplayMode(.inline)
                     .toolbar {
